@@ -1,8 +1,10 @@
 import HeaderBox from "@/components/HeaderBox";
+import RightSidebar from "@/components/RightSidebar";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
+import { LassoSelect } from "lucide-react";
 
 export default function Home() {
-  const loggedIn = {firstName : "Mikey"};
+  const loggedIn = {firstName : "Mikey", lastName : "Sharma", email : 'contact@mikeysharma.com'};
   return (
     <section className="home">
       <div className="home-content">
@@ -19,7 +21,12 @@ export default function Home() {
          totalCurrentBalance={1250.35}
          />
         </header>
+        RECENT TRANSACTIONS
       </div>
+      <RightSidebar 
+      user={loggedIn}
+      transactions={[]}
+      banks={[{currentBalance : 123.50}, { currentBalance : 500}]} />
     </section>
   );
 }

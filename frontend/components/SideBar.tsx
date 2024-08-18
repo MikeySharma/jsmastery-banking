@@ -1,6 +1,6 @@
 'use client';
-import { sidebarLinks } from '@/constants'
-import { cn } from '@/lib/utils'
+import { sidebarLinks } from '@/constants';
+import { cn } from '@/lib/utils';
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -11,7 +11,7 @@ const SideBar = ({ user }: SiderbarProps) => {
     return (
         <section className="sidebar">
             <nav className="flex flex-col gap-4">
-                <Link href="/" className='mb-12 cursor-pointer image-center gap-2'>
+                <Link href="/" className='mb-12 cursor-pointer image-center gap-2 flex items-center justify-evenly'>
                     <Image
                         src="/icons/logo.svg"
                         width={34}
@@ -57,7 +57,9 @@ const SideBar = ({ user }: SiderbarProps) => {
 
                     )
                 }
+                USER
             </nav>
+            FOOTER
         </section>
     )
 }
