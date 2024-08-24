@@ -39,7 +39,19 @@ const AuthForm = ({ type }: { type: string }) => {
             //sign up with Appwrite & create plaid token
 
             if (type === 'sign-up') {
-                const newUser = await signUp(values);
+                const userData = {
+                    firstName: values.firstName!,
+                    lastName: values.lastName!,
+                    address1: values.address1!,
+                    city: values.city!,
+                    state: values.state!,
+                    postalCode: values.postalCode!,
+                    dateOfBirth: values.dateOfBirth!,
+                    ssn: values.ssn!,
+                    email: values.email,
+                    password: values.password
+                }
+                const newUser = await signUp(userData);
 
                 setUser(newUser);
             }
@@ -87,12 +99,12 @@ const AuthForm = ({ type }: { type: string }) => {
                     </h1>
                 </div>
             </header>
-            {/* { */}
-                {/* // user ? ( */}
+            {
+                user ? (
                     <div className="flex flex-col gap-4">
                         <PlaidLink user={user} variant="primary" />
                     </div>
-                {/* // ) : ( */}
+                ) : (
                     <>
                         <Form {...form}>
                             {/* <form onSubmit={form.handleSubmit(onSubmit, (errors) => console.log(errors))} className="space-y-8"> */}
@@ -160,8 +172,8 @@ const AuthForm = ({ type }: { type: string }) => {
                             </Link>
                         </footer>
                     </>
-                {/* ) */}
-             {/* } */}
+                )
+            }
 
         </section>
     )
