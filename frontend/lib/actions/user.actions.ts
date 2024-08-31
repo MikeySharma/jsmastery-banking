@@ -81,7 +81,8 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
             }
         )
         const session = await account.createEmailPasswordSession(email, password);
-
+        console.log(newUserAccount, dwollaCustomerId, newUser);
+        
         cookies().set("appwrite-session", session.secret, {
             path: "/",
             httpOnly: true,
