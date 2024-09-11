@@ -15,7 +15,6 @@ export default async function Home({ searchParams: { id, page } }: SearchParamPr
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
 
   const account = await getAccount({ appwriteItemId });
-  
   return (
     <section className="home">
       <div className="home-content">

@@ -61,7 +61,7 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
         newUserAccount = await account.create(ID.unique(), email, password, `${firstName} ${lastName}`);
 
         if (!newUserAccount) throw new Error('Error creating user');
-
+        
         const dwollaCustomerUrl = await createDwollaCustomer({
             ...userData,
             type: 'personal'
@@ -81,7 +81,6 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
             }
         )
         const session = await account.createEmailPasswordSession(email, password);
-        console.log(newUserAccount, dwollaCustomerId, newUser);
         
         cookies().set("appwrite-session", session.secret, {
             path: "/",
