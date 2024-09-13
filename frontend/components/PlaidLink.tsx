@@ -23,6 +23,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
             user
         })
         router.push('/')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     const config: PlaidLinkOptions = {
