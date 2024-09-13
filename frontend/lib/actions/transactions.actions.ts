@@ -37,6 +37,28 @@ export const getTransactionsByBankId = async ({ bankId }: getTransactionsByBankI
 
         return parseStringify(transactions);
     } catch (error) {
+        console.error(error);
+    }
+}
+
+export const createTransaction = async (transaction: CreateTransactionProps) => {
+    try {
+        const { database } = await createAdminClient();
+
+        const newTransaction = await database.createDocument(
+            DATABASE_ID!,
+            TRANSACTION_COLLECTION_ID!,
+            ID.unique(),
+            {
+                channel: 'online',
+                category: 'Transfer',
+                ...transaction
+            }
+        )
+
+        return parseStringify(newTransaction)
+
+    } catch (error) {
         console.log(error);
     }
 }
