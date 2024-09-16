@@ -12,7 +12,8 @@ export const metadata: Metadata = {
   description: "Horizon is a modern banking platform for every users",
   icons: {
     icon : "/icons/logo.svg"
-  }
+  },
+  metadataBase : new URL("https://mikey-banking.vercel.app")
 };
 
 export default function RootLayout({
